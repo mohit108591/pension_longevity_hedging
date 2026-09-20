@@ -1,0 +1,69 @@
+seed: 2024
+output_dir: outputs/default
+data:
+  source: synthetic
+  hmd_dir: data/hmd/GBR_NP
+  sex: male
+  ages: [55, 95]
+  years: [1970, 2019]
+  scheme_deaths_csv: null
+  scheme_exposures_csv: null
+rates:
+  source: synthetic
+  yields_csv: null
+  yield_scale: 1.0
+  dt: 0.0833333333
+  dns_method: mle
+classical:
+  backtest_origins: [1989, 1994, 1999, 2004, 2009]
+  backtest_horizon: 10
+  backtest_sims: 500
+linear_ssm:
+  particle_grid: [16, 64, 256]
+  loglik_reps: 30
+  mh_iter: 4000
+  burn_in: 1000
+  pmmh_particles: 16
+sv:
+  jumps: true
+  particle_grid: [8, 16, 32, 64, 128, 256, 512]
+  loglik_reps: 30
+  posterior_source: pgas
+  smoother_particles: 512
+  smoother_paths: 100
+  pmmh:
+    particles: 128
+    iterations: 6000
+    burn_in: 1500
+  cpm:
+    particles: 32
+    iterations: 6000
+    burn_in: 1500
+    rho: 0.99
+  pgas:
+    particles: 48
+    iterations: 2000
+    burn_in: 500
+    chains: 3
+scheme:
+  pensioners: 12000
+  deferred: 6000
+  escalation: 0.02
+hedging:
+  horizon: 10
+  projection_years: 60
+  n_sims: 4000
+  wang_lambda: 0.15
+  lambda_grid: [0.0, 0.05, 0.1, 0.15, 0.2, 0.3]
+  alpha: 0.995
+  cvar_beta: 0.99
+  risk_aversion: 0.05
+  ridge: 0.001
+  max_gross: 60000
+  idiosyncratic: true
+  key_ages: [65, 70, 75, 80, 85]
+  sforward_ages: [65, 75]
+  swap_age: 70
+  swap_term: 40
+  zcb_maturities: [15, 20, 25, 30, 40, 50]
+  key_rate_tenors: [15, 20, 25, 30, 40, 50]

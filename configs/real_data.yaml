@@ -1,0 +1,24 @@
+inherit: quick.yaml
+output_dir: outputs/real_data
+data:
+  source: hmd
+  hmd_dir: data/deaths
+  deaths_path: data/deaths/Deaths_1x1/Deaths_1x1.txt
+  exposures_path: data/c_exposures/cExposures_1x1/cExposures_1x1.txt
+  population: GBR_NP
+  sex: male
+  ages: [55, 95]
+  years: [1970, 2021]
+  scheme_deaths_csv: null
+  scheme_exposures_csv: null
+classical:
+  backtest_origins: [1979, 1982]
+  backtest_horizon: 10
+rates:
+  source: excel
+  yields_xlsx:
+    - data/curve/GLC Nominal month end data_1970 to 2015.xlsx
+    - data/curve/GLC Nominal month end data_2016 to 2024.xlsx
+    - data/curve/GLC Nominal month end data_2025 to present.xlsx
+  yield_sheet: 4. spot curve
+  yield_scale: 100.0

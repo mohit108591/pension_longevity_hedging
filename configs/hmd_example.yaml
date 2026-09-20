@@ -1,0 +1,12 @@
+inherit: default.yaml
+output_dir: outputs/hmd
+data:
+  source: hmd
+  hmd_dir: data/hmd/GBR_NP
+  sex: male
+  ages: [55, 95]
+  years: [1970, 2019]
+rates:
+  source: csv
+  yields_csv: data/yields/gilt_zero_curve_monthly.csv
+  yield_scale: 100.0

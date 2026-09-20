@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+.env
+outputs/*
+!outputs/.gitkeep
+outputs/*/checkpoint.pkl
+data/hmd/
+data/*.zip
+*.egg-info/
+.DS_Store
+.idea/
+.vscode/
+*.log

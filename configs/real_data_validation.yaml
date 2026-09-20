@@ -1,0 +1,29 @@
+inherit: real_data.yaml
+
+classical:
+  backtest_origins: [1980, 1985, 1990, 1995, 2000, 2005, 2010]
+  backtest_horizon: 10
+  backtest_sims: 2000
+
+sv:
+  particle_grid: [16, 32, 64, 128, 256, 512]
+  loglik_reps: 50
+  smoother_particles: 1024
+  smoother_paths: 200
+
+  pmmh:
+    particles: 256
+    iterations: 12000
+    burn_in: 3000
+
+  cpm:
+    particles: 64
+    iterations: 12000
+    burn_in: 3000
+    rho: 0.99
+
+  pgas:
+    particles: 96
+    iterations: 8000
+    burn_in: 2000
+    chains: 4

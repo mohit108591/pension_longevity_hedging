@@ -1,0 +1,32 @@
+inherit: default.yaml
+output_dir: outputs/quick
+rates:
+  dns_method: two_step
+classical:
+  backtest_origins: [1999, 2009]
+  backtest_sims: 200
+linear_ssm:
+  particle_grid: [16, 64]
+  loglik_reps: 10
+  mh_iter: 800
+  burn_in: 200
+sv:
+  particle_grid: [16, 64, 256]
+  loglik_reps: 10
+  smoother_paths: 30
+  pmmh:
+    particles: 64
+    iterations: 600
+    burn_in: 200
+  cpm:
+    particles: 16
+    iterations: 600
+    burn_in: 200
+  pgas:
+    particles: 32
+    iterations: 300
+    burn_in: 100
+    chains: 2
+hedging:
+  n_sims: 1500
+  lambda_grid: [0.0, 0.15, 0.3]
